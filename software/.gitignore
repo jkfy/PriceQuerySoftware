@@ -1,0 +1,7 @@
+build/
+*.user
+*.autosave
+*.qmlc
+*.jsc
+.vs/
+.vscode/

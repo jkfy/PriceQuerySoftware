@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #cfcfcf; }
+  body { font-family: "Microsoft YaHei UI", "Segoe UI", "Microsoft YaHei", sans-serif; font-size: 12px; color: #1f1f1f; }
+
+  .dlg { width: 1120px; height: 760px; margin: 0; background: #fff; display: flex; flex-direction: column; border: 1px solid #b8b8b8; }
+
+  .titlebar { height: 34px; display: flex; align-items: center; padding: 0 12px; background: #f3f3f3; border-bottom: 1px solid #e0e0e0; }
+  .titlebar .t { font-size: 12px; color: #333; }
+  .titlebar .spacer { flex: 1; }
+  .winbtn { width: 34px; text-align: center; color: #555; }
+
+  /* 步骤条 */
+  .steps { height: 64px; display: flex; align-items: center; padding: 0 28px; border-bottom: 1px solid #ececec; background: #fafafa; }
+  .step { display: flex; align-items: center; gap: 9px; }
+  .step .no { width: 22px; height: 22px; border-radius: 11px; border: 1px solid #c4c4c4; color: #999; display: flex; align-items: center; justify-content: center; font-size: 11px; background: #fff; }
+  .step.done .no { background: #e8f5e9; border-color: #a5d6a7; color: #2e7d32; }
+  .step.cur .no { background: #0a6ed1; border-color: #0a6ed1; color: #fff; font-weight: 600; }
+  .step .lbl { font-size: 12px; color: #999; }
+  .step.done .lbl { color: #2e7d32; }
+  .step.cur .lbl { color: #111; font-weight: 600; }
+  .line { flex: 0 0 60px; height: 1px; background: #dcdcdc; margin: 0 14px; }
+  .line.done { background: #a5d6a7; }
+
+  .body { flex: 1; display: flex; flex-direction: column; padding: 16px 24px 0; min-height: 0; }
+
+  .fileinfo { display: flex; align-items: center; gap: 10px; color: #666; font-size: 11.5px; margin-bottom: 14px; }
+  .fileinfo .name { color: #222; font-weight: 600; }
+  .fileinfo .tag { padding: 2px 8px; background: #f2f2f2; border-radius: 3px; color: #555; font-size: 11px; }
+
+  .cards { display: flex; gap: 12px; margin-bottom: 16px; }
+  .card { flex: 1; border: 1px solid #e6e6e6; border-radius: 4px; padding: 10px 14px; background: #fcfcfc; }
+  .card .k { font-size: 11px; color: #888; }
+  .card .v { font-size: 22px; font-weight: 600; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .card.ok .v { color: #2e7d32; }
+  .card.warn .v { color: #b25d00; }
+  .card.err .v { color: #c62828; }
+
+  .section { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .section .title { font-size: 12.5px; font-weight: 600; }
+  .section .hint { color: #999; font-size: 11px; }
+  .section .spacer { flex: 1; }
+  .btn { height: 26px; padding: 0 11px; border: 1px solid #c8c8c8; background: #fdfdfd; border-radius: 3px; display: flex; align-items: center; gap: 5px; font-size: 11.5px; color: #222; }
+  .btn.primary { background: #0a6ed1; border-color: #0a6ed1; color: #fff; }
+  .btn.ghost { border-color: transparent; background: transparent; color: #0a6ed1; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  th { height: 28px; text-align: left; padding: 0 10px; background: #f6f6f6; border: 1px solid #e6e6e6; font-weight: 600; color: #555; font-size: 11px; }
+  td { height: 34px; padding: 0 10px; border: 1px solid #f0f0f0; vertical-align: middle; }
+  tr:hover td { background: #f7fbff; }
+  .rownum { color: #999; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10.5px; line-height: 17px; white-space: nowrap; }
+  .badge.miss { background: #fff3e0; color: #b25d00; }
+  .badge.err { background: #fdecea; color: #b71c1c; }
+  .badge.warn { background: #fff8e1; color: #8a6d00; }
+  .badge.info { background: #e8f1fb; color: #0a5cad; }
+  .val { font-variant-numeric: tabular-nums; }
+  .del { color: #c62828; }
+  .eq { color: #888; }
+
+  .footer { border-top: 1px solid #e6e6e6; padding: 12px 24px; display: flex; align-items: center; gap: 10px; background: #fafafa; }
+  .footer .spacer { flex: 1; }
+  .check { display: flex; align-items: center; gap: 6px; color: #444; font-size: 11.5px; }
+  .cb { width: 13px; height: 13px; border: 1px solid #9a9a9a; border-radius: 2px; background: #fff; display: inline-block; }
+  .btn.big { height: 30px; padding: 0 18px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="dlg">
+
+  <div class="titlebar">
+    <div class="t">导入历史价格 — 第 3 步 / 共 4 步：预检结果</div>
+    <div class="spacer"></div>
+    <div class="winbtn">✕</div>
+  </div>
+
+  <div class="steps">
+    <div class="step done"><div class="no">✓</div><div class="lbl">选择文件</div></div>
+    <div class="line done"></div>
+    <div class="step done"><div class="no">✓</div><div class="lbl">列映射</div></div>
+    <div class="line done"></div>
+    <div class="step cur"><div class="no">3</div><div class="lbl">预检结果</div></div>
+    <div class="line"></div>
+    <div class="step"><div class="no">4</div><div class="lbl">完成</div></div>
+  </div>
+
+  <div class="body">
+    <div class="fileinfo">
+      <span class="name">客户BOM_1108.xlsx</span>
+      <span class="tag">模板 v1</span>
+      <span>1,284 行</span>
+      <span>·</span>
+      <span>2026-11-08 导入</span>
+      <span>·</span>
+      <span>未写入数据库，本步骤仅做校验</span>
+    </div>
+
+    <div class="cards">
+      <div class="card"><div class="k">总行数</div><div class="v">1,284</div></div>
+      <div class="card ok"><div class="k">可导入</div><div class="v">1,277</div></div>
+      <div class="card warn"><div class="k">警告（仍可导入）</div><div class="v">5</div></div>
+      <div class="card err"><div class="k">错误（阻断）</div><div class="v">2</div></div>
+    </div>
+
+    <div class="section">
+      <div class="title">问题明细</div>
+      <div class="hint">按严重程度排序，双击可跳到 Excel 对应行</div>
+      <div class="spacer"></div>
+      <div class="btn">⬇ 导出问题清单</div>
+    </div>
+
+    <table>
+      <tr>
+        <th style="width:7%">行号</th>
+        <th style="width:12%">编号</th>
+        <th style="width:16%">名称</th>
+        <th style="width:11%">类型</th>
+        <th style="width:10%">问题</th>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td class="rownum">52</td>
+        <td>P-2003</td>
+        <td>配电柜 B 型</td>
+        <td><span class="badge info">产品</span></td>
+        <td><span class="badge err">错误</span></td>
+        <td>产品总价与明细不符：Excel <span class="val">1,240.00</span> <span class="eq">≠</span> 系统 <span class="val">1,286.50</span>（差 <b class="del">46.50</b>）</td>
+      </tr>
+      <tr>
+        <td class="rownum">88</td>
+        <td>X-9001</td>
+        <td class="del">未知料号</td>
+        <td>—</td>
+        <td><span class="badge err">错误</span></td>
+        <td>数据库中不存在该编号，且无别名匹配 → 可勾选“创建为新物料”后继续</td>
+      </tr>
+      <tr>
+        <td class="rownum">37</td>
+        <td>C-3005</td>
+        <td>保险丝</td>
+        <td><span class="badge info">元件</span></td>
+        <td><span class="badge miss">缺价</span></td>
+        <td>库中无该元件的价格，导入后报价将按 0 计算并标记为缺价</td>
+      </tr>
+      <tr>
+        <td class="rownum">103</td>
+        <td>A-2001</td>
+        <td>线束组件</td>
+        <td><span class="badge info">部件</span></td>
+        <td><span class="badge warn">警告</span></td>
+        <td>数量为空，已按 1 处理</td>
+      </tr>
+      <tr>
+        <td class="rownum">214</td>
+        <td>C-3011</td>
+        <td>断路器</td>
+        <td><span class="badge info">元件</span></td>
+        <td><span class="badge warn">警告</span></td>
+        <td>本批次中重复出现 2 次，将合并为一条（用量相加）</td>
+      </tr>
+      <tr>
+        <td class="rownum">402</td>
+        <td>A-2010</td>
+        <td>端子排组件</td>
+        <td><span class="badge info">部件</span></td>
+        <td><span class="badge miss">缺价</span></td>
+        <td>该部件下有 2 个元件缺价，无法校验总价，导入后标记为“含缺价”</td>
+      </tr>
+      <tr>
+        <td class="rownum">517</td>
+        <td>P-1001</td>
+        <td>电气柜 A 型</td>
+        <td><span class="badge info">产品</span></td>
+        <td><span class="badge warn">警告</span></td>
+        <td>产品总价与明细差 <span class="val">0.02</span>，在容差（0.01 × 行数）内，按系统值写入</td>
+      </tr>
+      <tr>
+        <td class="rownum">903</td>
+        <td>C-3002</td>
+        <td>导线</td>
+        <td><span class="badge info">元件</span></td>
+        <td><span class="badge miss">缺价</span></td>
+        <td>库中无该元件的价格，导入后报价将按 0 计算并标记为缺价</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div class="check"><span class="cb"></span>跳过错误行，仅导入 1,277 行可导入数据</div>
+    <div class="spacer"></div>
+    <div class="btn big">上一步</div>
+    <div class="btn big">取消</div>
+    <div class="btn big primary">开始导入</div>
+  </div>
+</div>
+</body>
+</html>

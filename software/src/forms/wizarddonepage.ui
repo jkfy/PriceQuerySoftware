@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WizardDonePage</class>
+ <widget class="QWidget" name="WizardDonePage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>8</number>
+   </property>
+   <property name="leftMargin">
+    <number>24</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>24</number>
+   </property>
+   <property name="bottomMargin">
+    <number>16</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="title">
+     <property name="kind" stdset="0">
+      <string>h1</string>
+     </property>
+     <property name="text">
+      <string>完成</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="subtitle">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="text">
+      <string>示例：1,277 行已进入预检队列（草稿不写库）。</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="titleSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>6</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="bodyLabel">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="text">
+      <string>正式版在这里会：&#10;  · 开启事务，逐行写入 price_record / import_row；&#10;  · 写入 import_batch 状态与统计；&#10;  · 失败时整体回滚，并给出出错行号。</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="mainSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

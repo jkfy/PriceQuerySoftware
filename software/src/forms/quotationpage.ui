@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QuotationPage</class>
+ <widget class="QWidget" name="QuotationPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="tabStrip" native="true">
+     <property name="kind" stdset="0">
+      <string>tabStrip</string>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="tabStripLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTabBar" name="tabBar">
+        <property name="drawBase">
+         <bool>false</bool>
+        </property>
+        <property name="expanding">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="tabStripSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="toolBar" native="true">
+     <property name="kind" stdset="0">
+      <string>toolbar</string>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="toolbarLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>8</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnNewQuote">
+        <property name="kind" stdset="0">
+         <string>primary</string>
+        </property>
+        <property name="text">
+         <string>＋ 新建报价</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnImportExcel">
+        <property name="text">
+         <string>导入 Excel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnOnlineSelect">
+        <property name="text">
+         <string>在线选型</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="toolbarGap">
+        <property name="minimumSize">
+         <size>
+          <width>6</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnExpandAll">
+        <property name="text">
+         <string>全展开</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCollapseAll">
+        <property name="text">
+         <string>全折叠</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="toolbarSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="searchEdit">
+        <property name="minimumSize">
+         <size>
+          <width>240</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>240</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>搜索编号 / 名称，回车定位…</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="filterBar" native="true">
+     <property name="kind" stdset="0">
+      <string>filterBar</string>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="filterBarLayout">
+      <property name="spacing">
+       <number>14</number>
+      </property>
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="metaLabel">
+        <property name="styleSheet">
+         <string notr="true">color:#666;</string>
+        </property>
+        <property name="text">
+         <string>客户：华工电气　计价基准日：—</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="filterSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="chipMissing">
+        <property name="kind" stdset="0">
+         <string>chip</string>
+        </property>
+        <property name="text">
+         <string>仅看缺价</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>1</horstretch>
+       <verstretch>1</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="childrenCollapsible">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="treePanel" native="true">
+      <layout class="QVBoxLayout" name="treePanelLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="tableBar" native="true">
+         <layout class="QHBoxLayout" name="tableBarLayout">
+          <property name="leftMargin">
+           <number>12</number>
+          </property>
+          <property name="topMargin">
+           <number>6</number>
+          </property>
+          <property name="rightMargin">
+           <number>12</number>
+          </property>
+          <property name="bottomMargin">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="countLabel">
+            <property name="kind" stdset="0">
+             <string>muted</string>
+            </property>
+            <property name="text">
+             <string>共 0 项</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="tableBarSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTreeView" name="treeView"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QFrame" name="summaryPanel">
+      <property name="kind" stdset="0">
+       <string>summary</string>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>248</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>320</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <layout class="QVBoxLayout" name="summaryLayout">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <property name="leftMargin">
+        <number>16</number>
+       </property>
+       <property name="topMargin">
+        <number>14</number>
+       </property>
+       <property name="rightMargin">
+        <number>16</number>
+       </property>
+       <property name="bottomMargin">
+        <number>14</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="totalCaption">
+         <property name="kind" stdset="0">
+          <string>sumLabel</string>
+         </property>
+         <property name="text">
+          <string>报价合计</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="totalValue">
+         <property name="kind" stdset="0">
+          <string>total</string>
+         </property>
+         <property name="text">
+          <string>¥ 0.00</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="totalSubLabel">
+         <property name="kind" stdset="0">
+          <string>muted</string>
+         </property>
+         <property name="text">
+          <string>其中 0 项缺价，按 0 计入</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="summaryLine">
+         <property name="kind" stdset="0">
+          <string>hline</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>1</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="selectedRow">
+         <item>
+          <widget class="QLabel" name="selectedCaption">
+           <property name="styleSheet">
+            <string notr="true">color:#666;</string>
+           </property>
+           <property name="text">
+            <string>已选合计</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="selectedSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="selectedValue">
+           <property name="styleSheet">
+            <string notr="true">font-weight:600; color:#111;</string>
+           </property>
+           <property name="text">
+            <string>¥ 0.00</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="missingRow">
+         <item>
+          <widget class="QLabel" name="missingCaption">
+           <property name="styleSheet">
+            <string notr="true">color:#666;</string>
+           </property>
+           <property name="text">
+            <string>缺价条目</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="missingSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="missingValue">
+           <property name="styleSheet">
+            <string notr="true">font-weight:600; color:#111;</string>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="dateRow">
+         <item>
+          <widget class="QLabel" name="dateCaption">
+           <property name="styleSheet">
+            <string notr="true">color:#666;</string>
+           </property>
+           <property name="text">
+            <string>价格日期</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="dateSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="dateValue">
+           <property name="styleSheet">
+            <string notr="true">font-weight:600; color:#111;</string>
+           </property>
+           <property name="text">
+            <string>—</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="warnNote">
+         <property name="kind" stdset="0">
+          <string>warnNote</string>
+         </property>
+         <property name="visible">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>⚠ 缺价提示</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="summarySpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnExportSelected">
+         <property name="kind" stdset="0">
+          <string>primary</string>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>导出所选（CSV）</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnExportMissing">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>仅导出缺价清单</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSaveQuotation">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>保存报价单</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

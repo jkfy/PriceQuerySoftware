@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "mingw-release",
+      "displayName": "MinGW 13.1 x64 · Release (Qt 6.10.0)",
+      "description": "本机默认配置：Ninja + MinGW 13.1 + Qt 6.10.0 (mingw_64)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_PREFIX_PATH": "D:/QtCreate/6.10.0/mingw_64",
+        "CMAKE_CXX_COMPILER": "D:/QtCreate/Tools/mingw1310_64/bin/g++.exe",
+        "CMAKE_MAKE_PROGRAM": "D:/QtCreate/Tools/Ninja/ninja.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "mingw-debug",
+      "displayName": "MinGW 13.1 x64 · Debug (Qt 6.10.0)",
+      "inherits": "mingw-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "displayName": "构建 Release",
+      "configurePreset": "mingw-release"
+    },
+    {
+      "name": "debug",
+      "displayName": "构建 Debug",
+      "configurePreset": "mingw-debug"
+    }
+  ]
+}

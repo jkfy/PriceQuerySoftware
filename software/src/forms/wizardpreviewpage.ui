@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WizardPreviewPage</class>
+ <widget class="QWidget" name="WizardPreviewPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1020</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>24</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>24</number>
+   </property>
+   <property name="bottomMargin">
+    <number>16</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="title">
+     <property name="kind" stdset="0">
+      <string>h1</string>
+     </property>
+     <property name="text">
+      <string>预检结果</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="subtitle">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="text">
+      <string>这一步只读校验，还没有写入数据库。</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="cardsRow">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="cardTotal">
+       <property name="kind" stdset="0">
+        <string>card</string>
+       </property>
+       <layout class="QVBoxLayout" name="cardTotalLayout">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <property name="leftMargin">
+         <number>14</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>14</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="cardTotalCaption">
+          <property name="kind" stdset="0">
+           <string>muted</string>
+          </property>
+          <property name="text">
+           <string>总行数</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="cardTotalValue">
+          <property name="styleSheet">
+           <string notr="true">font-size:22px; font-weight:600; color:#111111;</string>
+          </property>
+          <property name="text">
+           <string>1,284</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardOk">
+       <property name="kind" stdset="0">
+        <string>card</string>
+       </property>
+       <layout class="QVBoxLayout" name="cardOkLayout">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <property name="leftMargin">
+         <number>14</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>14</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="cardOkCaption">
+          <property name="kind" stdset="0">
+           <string>muted</string>
+          </property>
+          <property name="text">
+           <string>可导入</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="cardOkValue">
+          <property name="styleSheet">
+           <string notr="true">font-size:22px; font-weight:600; color:#2e7d32;</string>
+          </property>
+          <property name="text">
+           <string>1,277</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardWarn">
+       <property name="kind" stdset="0">
+        <string>card</string>
+       </property>
+       <layout class="QVBoxLayout" name="cardWarnLayout">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <property name="leftMargin">
+         <number>14</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>14</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="cardWarnCaption">
+          <property name="kind" stdset="0">
+           <string>muted</string>
+          </property>
+          <property name="text">
+           <string>警告（仍可导入）</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="cardWarnValue">
+          <property name="styleSheet">
+           <string notr="true">font-size:22px; font-weight:600; color:#b25d00;</string>
+          </property>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardError">
+       <property name="kind" stdset="0">
+        <string>card</string>
+       </property>
+       <layout class="QVBoxLayout" name="cardErrorLayout">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <property name="leftMargin">
+         <number>14</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>14</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="cardErrorCaption">
+          <property name="kind" stdset="0">
+           <string>muted</string>
+          </property>
+          <property name="text">
+           <string>错误（阻断）</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="cardErrorValue">
+          <property name="styleSheet">
+           <string notr="true">font-size:22px; font-weight:600; color:#c62828;</string>
+          </property>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="issuesHead">
+     <item>
+      <widget class="QLabel" name="issuesTitle">
+       <property name="kind" stdset="0">
+        <string>h2</string>
+       </property>
+       <property name="text">
+        <string>问题明细</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="issuesSubtitle">
+       <property name="kind" stdset="0">
+        <string>muted</string>
+       </property>
+       <property name="text">
+        <string>按严重程度排序，双击可跳到 Excel 对应行</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="issuesSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnExportIssues">
+       <property name="text">
+        <string>导出问题清单</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="issueTable"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

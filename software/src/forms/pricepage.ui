@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PricePage</class>
+ <widget class="QWidget" name="PricePage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="toolBar" native="true">
+     <property name="kind" stdset="0">
+      <string>toolbar</string>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="toolbarLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>8</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="pageTitle">
+        <property name="kind" stdset="0">
+         <string>h1</string>
+        </property>
+        <property name="text">
+         <string>元件价格</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="countLabel">
+        <property name="kind" stdset="0">
+         <string>muted</string>
+        </property>
+        <property name="text">
+         <string>共 0 项</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="toolbarSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="chipMissing">
+        <property name="kind" stdset="0">
+         <string>chip</string>
+        </property>
+        <property name="text">
+         <string>仅看缺价</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="searchEdit">
+        <property name="minimumSize">
+         <size>
+          <width>220</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>220</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="placeholderText">
+         <string>搜索编号 / 名称…</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="hintLabel">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding:8px 12px; background:#ffffff; border-bottom:1px solid #ececec;</string>
+     </property>
+     <property name="text">
+      <string>价格带版本：同一元件同一天只保留一条，重复导入即覆盖；历史成交价仅用于对账，不参与计算。</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="priceView"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="historyTitle">
+     <property name="kind" stdset="0">
+      <string>h2</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding:8px 12px; background:#fafafa; border-top:1px solid #e0e0e0;</string>
+     </property>
+     <property name="text">
+      <string>价格记录（只读）</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="historyView">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>150</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

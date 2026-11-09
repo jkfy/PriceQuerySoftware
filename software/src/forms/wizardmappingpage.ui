@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WizardMappingPage</class>
+ <widget class="QWidget" name="WizardMappingPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>8</number>
+   </property>
+   <property name="leftMargin">
+    <number>24</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>24</number>
+   </property>
+   <property name="bottomMargin">
+    <number>16</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="title">
+     <property name="kind" stdset="0">
+      <string>h1</string>
+     </property>
+     <property name="text">
+      <string>列映射</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="subtitle">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="text">
+      <string>告诉程序每一列对应哪个字段。模板定稿后这一步可以自动识别，直接跳过。</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="titleSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>6</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="mappingForm">
+     <property name="horizontalSpacing">
+      <number>16</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>10</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="colACaption">
+       <property name="text">
+        <string>A 列</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboA">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="colBCaption">
+       <property name="text">
+        <string>B 列</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="comboB">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="colCCaption">
+       <property name="text">
+        <string>C 列</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="comboC">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="colDCaption">
+       <property name="text">
+        <string>D 列</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="comboD">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="colECaption">
+       <property name="text">
+        <string>E 列</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="comboE">
+       <property name="maximumSize">
+        <size>
+         <width>240</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="mainSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

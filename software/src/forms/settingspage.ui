@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsPage</class>
+ <widget class="QWidget" name="SettingsPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <property name="leftMargin">
+    <number>24</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>24</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="pageTitle">
+     <property name="kind" stdset="0">
+      <string>h1</string>
+     </property>
+     <property name="text">
+      <string>数据库连接</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="hintLabel">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="text">
+      <string>提示：本机 Qt 未附带 QMYSQL 插件，程序会自动改用 QODBC + MySQL ODBC 驱动连接。两套驱动共用同一份 SQL。</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="card">
+     <property name="kind" stdset="0">
+      <string>card</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="horizontalSpacing">
+       <number>16</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>16</number>
+      </property>
+      <property name="topMargin">
+       <number>16</number>
+      </property>
+      <property name="rightMargin">
+       <number>16</number>
+      </property>
+      <property name="bottomMargin">
+       <number>16</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="hostCaption">
+        <property name="text">
+         <string>主机</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="hostEdit">
+        <property name="text">
+         <string>127.0.0.1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="portCaption">
+        <property name="text">
+         <string>端口</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="portEdit">
+        <property name="maximumSize">
+         <size>
+          <width>90</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>3306</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="dbCaption">
+        <property name="text">
+         <string>数据库</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="dbEdit">
+        <property name="text">
+         <string>price_query</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="userCaption">
+        <property name="text">
+         <string>用户名</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="userEdit">
+        <property name="text">
+         <string>root</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="pwdCaption">
+        <property name="text">
+         <string>密码</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="pwdEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonsRow">
+     <item>
+      <widget class="QPushButton" name="btnApply">
+       <property name="kind" stdset="0">
+        <string>primary</string>
+       </property>
+       <property name="text">
+        <string>测试并应用</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnUseDemo">
+       <property name="text">
+        <string>使用演示数据</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="buttonsSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string>—</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="driverLabel">
+     <property name="kind" stdset="0">
+      <string>muted</string>
+     </property>
+     <property name="text">
+      <string>可用驱动：—</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="bottomSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
